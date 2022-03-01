@@ -19,8 +19,6 @@ View-->Partial;
 View-->SubView
 ```
 
-
-
 ```php
 file app\Views\home.php
 
@@ -50,8 +48,6 @@ una view o un template
 
 <?= $this->include('partial') ?>
 ```
-
-
 
 esempi estensivi:
 
