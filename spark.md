@@ -28,3 +28,5 @@ sul database
   migrate:rollback   Runs the "down" method for all migrations in the last batch.
   migrate:status     Displays a list of all migrations and whether they've been run or not.
 ```
+
+prima riga per il primo commit
