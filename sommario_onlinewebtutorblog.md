@@ -38,7 +38,7 @@
   <?=$this->extend("layout/master")?>
   
   <?=$this->section("content")?>
-      
+  
   <?=$this->endSection()?>
   ```
 
@@ -46,7 +46,7 @@
   
   ```php
   <link rel="stylsheet" href="<?= base_url('public/css/style.css') ?>"/>
-    
+  
   <?= link_tag('public/css/style.css') ?>
   ```
 
@@ -55,8 +55,6 @@
   ```php
   $this->include(“partials/header”)
   ```
-
-
 
 ## Chapter 2: CodeIgniter 4 with MySQL
 
@@ -107,5 +105,3 @@ Creo un db e faccio le prime operazioni di inserimento dati
 ## Chapter 6: CodeIgniter 4 Advance
 
 ## Chapter 7: CodeIgniter 4 REST APIs
-
-
