@@ -28,9 +28,7 @@ Il controller può gestire dei dati provenienti da una o più tabelle del nostro
 
 Per usare un db è necessario scricare un comune server locale come xampp e avviare i servizi apache e sql. Creiamo manualmente il DB (con phpMyAdmin o tool simili compresi già nel server locale che scegliamo). Quindi creiamo una utenza e la colleghiamo a questo. Poi dovremo passare a CI4 i dati per potersi connettere.
 
-A questo punto creiamo le nostre tabelle tramite le <u>*migration*</u> e, se necessario, le popoliamo tramite i seeder per la fase di sviluppo. I file delle migration in locale possono essere richiamati da CLI con i comandi della libreria spark. 
-
-
+A questo punto creiamo le nostre tabelle tramite le <u>*migration*</u> e, se necessario, le popoliamo tramite i seeder per la fase di sviluppo. I file delle migration in locale possono essere richiamati da CLI con i comandi della libreria spark, oppure con una chiamata di un controller creato apposta. Su server invece avrò solo quest'ultima possibilità non potendo avere a disposizione la CLI.
 
 github
 
@@ -52,7 +50,11 @@ Se è possibile usiamo Softacolous per installare CI4 nel dominio o sottodominio
 
 Il database può essere creato durante la fase di installazione tramite Softacolous altrimenti lo creeremo noi da cPanel, creeremo poi un'utenza da collegare al DB. 
 
-In questo momento il DB non ha tabelle. Queste posso importarle dal db locale o con le migration e poi i seeder. Su server non ho modo di lanciare i comandi dalla CLI di conseguenza importerò le tabelle agendo manualmente sul db con phpMyAdmin
+In questo momento il DB non ha tabelle. Queste posso importarle dal db locale o con le migration e poi i seeder. Su server non ho modo di lanciare i comandi dalla CLI di conseguenza tali comandi dovranno avere delle loro routes configurate appositamente, mentre i file delle migration dovrò caricarli da locale con tutto il progetto.
+
+```php
+$routes->get('migrate', 'MigrateController::index');
+```
 
 Creare il DB e l'utenza
 
