@@ -1,5 +1,3 @@
-{::options parse_block_html="true" /}
-
 ## Seeder
 
 ```php
@@ -80,8 +78,7 @@ Posso dare il comando tramite CLI:
 php spark db:seed PopulateProducts
 ```
 
-Seeder multipli
-{: .alert .alert-success}
+## Seeder multipli
 
 Se ho più di una tabella, anzichè chiamare singolarmente tutti i seeder posso creare un seeder principale che ha la sola funzione di chiamare in sequenza tutti gli altri.
 
