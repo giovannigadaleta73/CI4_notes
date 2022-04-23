@@ -63,5 +63,3 @@ i tag semantici 
 images, videos, audios, tables, charts, block of codes
 
 </figure>
-
-Configuro [App\Config\Database.php] [1]

@@ -1,82 +1,79 @@
-- - - ISTALLAZIONE
+## IF
 
-su server selezionare la versione php corretta e abilitare la visualizzazione degli errori
+```php
+<?php if(isset($validation)): ?>
 
-abilitare l'estensione ‘intl’ in php.ini prima di installare via composer l’applicazione in locale
+ // Codice eseguito se if è true
 
-### CLI> composer create-project codeigniter4/appstarter project-root
+ <?php endif; ?>
+```
 
-- - - IF
+# 
 
-### <?php if(isset($validation)): ?>
+## LINK
 
-### // Codice eseguito se if è true
+```php
+<a class="navbar-item" href="<?= site_url(['login', 'logout']) ?>">Logout</a>
 
-### <?php endif; ?>
+<a class="navbar-item" href="<?= site_url(['products']) ?>">Elenco</a>
 
-- - - TEMPLATE VIEW
+<a class="navbar-item" href="<?= site_url(['products', 'add']) ?>">Nuovo</a>
+```
 
-### <?php $this->extend('main_template') ?>
+## 
 
-### <?php $this->section('content'); /* INZIO DELLA SEZIONE */ ?>
+## FORM INVIO
 
-### <?php $this->endSection(); /* TERMINE DELLA SEZIONE */ ?>
+```php
+<?= form_open(current_url(), ['method' => 'post']) ?>
 
---- LINK
+<?= form_label('Title', 'title', ['for' => 'Title', 'class' => 'form-label']) ?>
 
-### <a class="navbar-item" href="<?= site_url(['login', 'logout']) ?>">Logout</a>
+<?= form_input('title', '', ['class' => 'form-control']) ?>
 
-### <a class="navbar-item" href="<?= site_url(['products']) ?>">Elenco</a>
+<?= form_textarea('description', '', ['class' => 'form-control']) ?>
 
-### <a class="navbar-item" href="<?= site_url(['products', 'add']) ?>">Nuovo</a>
+<?= form_input('price', '', ['class' => 'form-control', 'min' => 0, 'step' => '.1'], 'number') ?>
 
-- - - - - FORM
+<?= form_submit('submit', 'Submit', ['class' => 'btn btn-primary']) ?>
 
-### <?= form_open(current_url(), ['method' => 'post']) ?>
+<?= form_close() ?>
+```
 
-### <?= form_label('Title', 'title', ['for' => 'Title', 'class' => 'form-label']) ?>
+## 
 
-### <?= form_input('title', '', ['class' => 'form-control']) ?>
-
-### <?= form_textarea('description', '', ['class' => 'form-control']) ?>
-
-### <?= form_input('price', '', ['class' => 'form-control', 'min' => 0, 'step' => '.1'], 'number') ?>
-
-### <?= form_submit('submit', 'Submit', ['class' => 'btn btn-primary']) ?>
-
-### <?= form_close() ?>
-
-- - - - - FORM
+## FORM RICEZIONE
 
 Ricevo i dati di un form (pagina che richiama se stessa tramite un Controller Products.php e una funzione add() ) attivo l’helper(‘form’) e avrò così a disposizione alcuni metodi che elaborano i dati del form:
 
-### $this->request->getMethod() // lo uso per verificare il method del form
+```php
+$this->request->getMethod() // lo uso per verificare il method del form
 
-### $this->validate([
+$this->validate([
 
-### 'title' =>'required|min_length[10]',
+'title' =>'required|min_length[10]',
 
-### 'description' =>'required|min_length[50]',
+'description' =>'required|min_length[50]',
 
-### 'price' =>'required|decimal']); // istruzioni per la validazione
+'price' =>'required|decimal']); // istruzioni per la validazione
 
-### $this->validator // elenca gli errori trovati durante la validazione
+$this->validator // elenca gli errori trovati durante la validazione
 
-### $this->request->getPost() // restituisce i dati del form
+$this->request->getPost() // restituisce i dati del form
+```
 
-- - - - - helper() 
+## helper()
 
 Posso chiamare l’helper nella funzione add() del mio controller
 
-app/Controllers/Products.php
+```php
+app\Controllers\Products.php
 
-    public function add() {
-
-        helper(‘form’);
-
-        …
-
+    public function add() {
+        helper(‘form’);
+        …
 }
+```
 
 gli errori li trovo in 
 
@@ -90,10 +87,26 @@ app/Controllers/BaseController.php
 
     protected $helpers = [‘form’];
 
-- - - BOOTSTRAP FORM
+## BOOTSTRAP FORM
 
 form-group
 
     form-label
 
     form-control (per input e textarea)
+
+## PHP
+
+<mark>compact()</mark>
+
+```php
+$firstname = "Peter";
+$lastname = "Griffin";
+$age = "41";
+
+$name = array("firstname", "lastname");
+$result = compact($name, "location", "age");
+
+print_r($result); 
+// Array ( [firstname] => Peter [lastname] => Griffin [age] => 41 )
+```

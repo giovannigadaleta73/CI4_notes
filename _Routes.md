@@ -239,8 +239,6 @@ Poniamo che il metodo creato richieda più parametri. Abbiamo due strategie per 
     mio-sito.com/festa/marco/20/10 // errore
    ```
 
-
-
 ## Route e Placeholder vs Controller/metodo
 
 ---
@@ -258,7 +256,3 @@ Ultime considerazioni che ho verificato nel corso delle mie prove.
   ```
 
 - Se con lo schema diretto non inserendo il numero di parametri previsto per il mio metodo si riceve un messaggio di errore. Questo non accade con lo schema Route e Placeholder: in questa situazione va rispettato il numero e tipo di parametri richiesti dai placeholder e se il numero di placeholder indicato nella route non corrisponde al numero di parametri che si aspetta il nostro metodo, non verrà generato un messaggio di errore.
-
-
-
-

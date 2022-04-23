@@ -1,8 +1,22 @@
-# STRUTTURA DEL LAYOUT
+# 3. STRUTTURA DEL LAYOUT
 
 Dopo aver visto una semplice view, passiamo a metodi più flessibili:
 
-Il nostro codice esegue una view e questa estende un template.
+Con l'uso dei template si possono gestire pagine dalla struttura più complessa e articolata. Gli elementi che usiamo sono definiti:
+
+---
+
++ **view** (riceve i dati dal Controller e dai parent, può contenere altre view e partial)
+
++ **template** (contiene viev e partial e non riceve dati)
+
++ **partial** (solo codice, non riceve dati)
+
+---
+
+Quando il Controller chiama una view questa richiamerà, a sua volta, un template. Da questa forma più semplice si può passare a strutture complesse usando view, template e partial.
+
+Con questo costrutto nella view sono contenute delle *section* che verranno inserite all'interno del file template, che si comporta da contenitore.
 
 La view dopo l'apertura con `$this->extend("template")` conterrà una o più sezioni. Ogni sezione inizia e finisce con i comandi `section('...')` ed `endSection()`.
 
@@ -10,7 +24,15 @@ I metodi sono:
 
 ### view
 
-L'uso dell'estensione di un file template è utile per concentrarsi solo sulla parte variabile della pagina. I file css e i file di script possono essere caricati dal Template, se non cambiano mai oppure, in alternativa, possono essere inclusi nelle view, in modo che ognuna carichi quella più opportuna. Una view può caricare un'altra view o un partial.
+L'uso dell'estensione di un file template è utile per concentrarsi solo sulla parte variabile della pagina. I file css e i file di script possono essere caricati dal Template, se non cambiano mai oppure, in alternativa, possono essere inclusi nelle view, in modo che ognuna carichi le componenti più opportune. 
+
+Una <u>*view *</u> può:
+
++ richiamare un <mark>template </mark>e inserisi al suo interno
+
++ caricare la proprio interno un altra view (<mark>subview</mark>) a cui può trasmettere dati
+
++ caricare un <mark>partial </mark>(simile ad una view, ma col limite di non poter ricevere dati)
 
 ```mermaid
 graph LR;
@@ -20,7 +42,8 @@ View-->SubView
 ```
 
 ```php
-file app\Views\home.php
+// la nostra View richiamata dal Controller sarà il file
+// app\Views\catalogo\index.php
 
 <?=$this->extend("template")?>
 
@@ -49,7 +72,7 @@ una view o un template
 <?= $this->include('partial') ?>
 ```
 
-esempi estensivi:
+<u>esempi estensivi:</u>
 
 ***template.php***
 
