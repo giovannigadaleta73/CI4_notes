@@ -1,5 +1,9 @@
 # 4. DATI - CREARE LE TABELLE
 
+> Migration per crare le tabelle
+> 
+> Migration per modificare una tabella
+
 Dopo aver configurato la connessione al database possiamo creare le sue tabelle. Anzichè procedere manualmente con phpMyAdmin, CI4 fornisce le migration: file che contengono istruzioni per creare e modificare le tabelle del nostro progetto. Sostituiscono e rendono rapide tutte quelle operazioni fatte manualmente con i vari programmi di gestione dei database come phpMyAdmin. Il nome della migration segue la notazione PascalCase.
 
 ```

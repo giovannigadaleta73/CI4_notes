@@ -29,7 +29,6 @@ creo una pagina che verrà richiamata dal Controller in
 <mark>App\Views\catalogo\index.php</mark>
 
 ```php
-
 <section class="columns is-multiline">
 <ul>
 
@@ -41,8 +40,6 @@ creo una pagina che verrà richiamata dal Controller in
 
 </ul>
 </section>
-
-
 ```
 
 questa pagina è raggiungibile con gli url

@@ -158,3 +158,40 @@ una view o un template
 
 <?php $this->endSection();
 ```
+
+## CSS esterni
+
+I file css vanno salvati nella cartella Public e richiamati dall'head del file principale
+
+```html
+    <link rel="stylesheet" href="../libri/app.css">
+```
+
+es.
+
+```php
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="../libri/app.css">
+</head>
+
+<body>
+    <?= $this->include('template/header') ?>
+
+    <main class="section">
+
+        <?php $this->renderSection('content'); ?>
+
+    </main>
+
+    <?= $this->include('template/footer') ?>
+</body>
+
+</html>
+```
