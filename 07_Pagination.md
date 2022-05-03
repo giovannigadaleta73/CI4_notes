@@ -27,10 +27,8 @@ nel file Controller sostituisco paginate() a findAll() e invio i dati alla view:
             ->orderBy('id', 'ASC')
            // ->findAll(10)
             ->paginate(4);
-  
+
         $dati['pager'] = $LibriModel->pager;
-
-
 ```
 
 Nella view <mark>App\Views\Catalogo\index.php</mark> mi basta richiamare il comando:
